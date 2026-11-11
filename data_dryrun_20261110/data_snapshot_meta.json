@@ -1,0 +1,34 @@
+{
+  "retrieved_utc": "2026-11-11T12:57:08+00:00",
+  "source": "Yahoo Finance via yfinance 1.7.0",
+  "cutoff_close": "2026-11-10",
+  "series": {
+    "^GSPC": {
+      "file": "gspc.csv",
+      "url": "https://finance.yahoo.com/quote/^GSPC/history",
+      "first": "1990-01-02",
+      "last": "2026-11-10",
+      "last_close": 7520.9302,
+      "rows": 9283,
+      "publication": "official close 16:00 New York"
+    },
+    "^VIX": {
+      "file": "vix.csv",
+      "url": "https://finance.yahoo.com/quote/^VIX/history",
+      "first": "1990-01-02",
+      "last": "2026-11-10",
+      "last_close": 19.46,
+      "rows": 9285,
+      "publication": "Cboe close ~16:15 New York"
+    },
+    "^TNX": {
+      "file": "tnx.csv",
+      "url": "https://finance.yahoo.com/quote/^TNX/history",
+      "first": "1990-01-02",
+      "last": "2026-11-10",
+      "last_close": 4.983,
+      "rows": 9252,
+      "publication": "Cboe 10y yield index, close ~15:00 Chicago"
+    }
+  }
+}

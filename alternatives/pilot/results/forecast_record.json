@@ -1,0 +1,23 @@
+{
+  "market": "S&P 500 price index (SPX)",
+  "unit": "index points",
+  "target": "Official close, Thu 5 Nov 2026, 16:00 New York",
+  "information_cutoff": "Fri 30 Oct 2026 close, 16:00 New York",
+  "baseline_close_30Oct": 7580.07,
+  "point_forecast": 7599.23,
+  "expected_return_pct": 0.253,
+  "coefficients": {
+    "a": 0.0021654624895544898,
+    "b_REV": -0.053661537853966386,
+    "c_VGAP": 3.6510197677534e-05
+  },
+  "factor_values": {
+    "REV": -0.0057368045603478635,
+    "VGAP": 1.408373037974041,
+    "VIX": 19.420000076293945
+  },
+  "interval_80": [
+    7428.62,
+    7757.17
+  ]
+}

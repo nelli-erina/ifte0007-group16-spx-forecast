@@ -1,0 +1,5 @@
+# Versions used for the frozen run (Python 3.13.18)
+numpy==2.5.3
+pandas==3.0.5
+matplotlib==3.11.2
+yfinance==1.7.0   # only needed to DOWNLOAD data; not needed to reproduce from the frozen snapshot

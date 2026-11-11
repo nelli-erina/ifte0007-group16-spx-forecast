@@ -1,0 +1,29 @@
+{
+  "status": "DRY RUN - not the submitted forecast",
+  "market": "S&P 500 price index",
+  "unit": "index points",
+  "target": "Official S&P DJI close, Fri 20 Nov 2026, 16:00 New York",
+  "information_cutoff": "Fri 13 Nov 2026 12:00 London; last usable close 2026-11-10",
+  "baseline_close": 7520.93,
+  "model": "M3 reversal + rates",
+  "coefficients": [
+    0.003158,
+    -0.035515,
+    -0.005713
+  ],
+  "expected_return_pct": 0.3212,
+  "point_forecast": 7545.09,
+  "options_check": {
+    "expiry": "2026-11-20",
+    "contracts": "SPXW (PM-settled)",
+    "implied_forward": 7596.05,
+    "atm_strike": 7595.0,
+    "atm_straddle": 146.9,
+    "expected_abs_move_pct": 1.93,
+    "quotes_last_trade": "2026-11-10 21:14:29+00:00",
+    "snapshot_retrieved_utc": "2026-11-11T12:57:25+00:00",
+    "snapshot_file": "spxw_2026-11-20_snapshot.csv"
+  },
+  "official_close_used_for_check": null,
+  "reproduce_with": "python spx_forecast_v2.py --cutoff 2026-11-10 --no-download --dry-run"
+}

@@ -1,0 +1,27 @@
+{
+  "retrieved_utc": "2026-11-11T13:36:05+00:00",
+  "source": "Yahoo Finance via yfinance",
+  "series": {
+    "^GSPC": {
+      "file": "gspc_ohlc.csv",
+      "url": "https://finance.yahoo.com/quote/^GSPC/history",
+      "first": "2009-12-01",
+      "last": "2026-11-10",
+      "rows": 4262
+    },
+    "BTC-USD": {
+      "file": "btc.csv",
+      "url": "https://finance.yahoo.com/quote/BTC-USD/history",
+      "first": "2024-01-01",
+      "last": "2026-11-10",
+      "rows": 1045
+    },
+    "ETH-USD": {
+      "file": "eth.csv",
+      "url": "https://finance.yahoo.com/quote/ETH-USD/history",
+      "first": "2024-01-01",
+      "last": "2026-11-10",
+      "rows": 1045
+    }
+  }
+}

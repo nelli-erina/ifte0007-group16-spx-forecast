@@ -1,0 +1,8 @@
+method,type,factors,forecast,source,error_pct,score
+No change,Benchmark,-,7580.06982421875,benchmark,3.0778914131842,34.610542934079
+Historical mean,Benchmark,Mean historical return,7603.91,member,3.402083024533132,32.98958487733434
+AR(1),Time series,Previous-day return,7610.22,member,3.487889819180208,32.56055090409896
+OLS regression,Linear regression,"Reversal, VIX gap",7599.23,member,3.3384418519581223,33.307790740209384
+Ridge regression,Penalised regression,"Momentum, volatility, earnings",7587.904191038159,re-estimated by agent,3.1844273727504238,34.07786313624788
+k-nearest neighbours,Machine learning,"Momentum, volatility (k=50)",7567.408672950929,member,2.9057182266812824,35.471408866593585
+OLS + event adjustment,Model + judgement,"as OLS, +0.59%",7643.97,member (submitted),3.9468405829422717,30.265797085288643

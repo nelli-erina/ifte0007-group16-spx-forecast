@@ -1,0 +1,13 @@
+[PASS] no data after cutoff  (last date 2026-11-10)
+[PASS] last row is the cutoff close  (2026-11-10 vs 2026-11-10)
+[PASS] no duplicate dates  (0 duplicates)
+[PASS] dates sorted
+[PASS] no missing values in last 30 rows  ({'spx': 0, 'vix': 0, 'tnx': 0})
+[PASS] no calendar gaps > 5 days since 1995  (1 gaps: [datetime.date(2001, 9, 17)])
+[PASS] no daily index moves > 10% (other than known crises)  (3 days: [datetime.date(2008, 10, 13), datetime.date(2008, 10, 28), datetime.date(2020, 3, 16)])
+[PASS] last close within 20% of previous month
+[PASS] VIX in plausible range (5-90)
+[PASS] 10y yield in plausible range (0-10%)
+[WARN] last close cross-checked against S&P DJI  (not done: pass --official-close)
+[PASS] no look-ahead in training windows (25 sampled origins)  (0 violations)
+[PASS] estimator recovers known coefficients on synthetic data  (true [0.003, -0.04, -0.006] vs est [0.003, -0.0394, -0.006])

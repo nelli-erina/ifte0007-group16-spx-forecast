@@ -1,0 +1,23 @@
+{
+  "retrieved_utc": "2026-11-01T13:42:12+00:00",
+  "source": "Yahoo Finance via yfinance 1.7.0",
+  "end_exclusive": "2026-10-31",
+  "series": {
+    "^GSPC": {
+      "file": "gspc.csv",
+      "url": "https://finance.yahoo.com/quote/^GSPC/history",
+      "first": "1950-01-03",
+      "last": "2026-10-30",
+      "last_close": 7580.07,
+      "rows": 19330
+    },
+    "^VIX": {
+      "file": "vix.csv",
+      "url": "https://finance.yahoo.com/quote/^VIX/history",
+      "first": "1990-01-02",
+      "last": "2026-10-30",
+      "last_close": 19.42,
+      "rows": 9278
+    }
+  }
+}

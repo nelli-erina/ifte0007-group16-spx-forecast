@@ -1,0 +1,88 @@
+Run at 2026-11-01T13:43:07+00:00 UTC | python 3.13.18 | pandas 3.0.5 | numpy 2.5.3
+=== DATA CHECKS ===
+Last observation           : 2026-10-30  (must equal cutoff 2026-10-30)
+S&P 500 close at cutoff    : 7580.07  (press check: 7,580.07)
+VIX close at cutoff        : 19.42  (press check: 19.42)
+Daily moves > 8% (sanity)  : 13 days, e.g. ['1987-10-19', '1987-10-21', '1987-10-26', '2008-09-29']
+
+=== BACKTEST: Friday-close origins, 4-day horizon, 2006 -> last known outcome ===
+                              n  MAPE_model  MAPE_rw  MAPE_drift  score_model  score_rw  win_rate_vs_rw  DM_t(model-rw)
+spec                                                                                                                   
+MAIN  REV+VGAP, 10y        1049       1.544     1.56       1.550       42.469     42.37           0.513          -1.963
+REV only, 10y              1049       1.539     1.56       1.550       42.479     42.37           0.541          -2.788
+VGAP only, 10y             1049       1.551     1.56       1.550       42.433     42.37           0.542          -1.558
+R1+VGAP, 10y               1049       1.551     1.56       1.550       42.438     42.37           0.521          -1.303
+REV+VGAP, 5y               1049       1.540     1.56       1.550       42.497     42.37           0.548          -1.818
+REV+VGAP, 15y              1049       1.543     1.56       1.549       42.463     42.37           0.521          -2.054
+REV+VGAP, 10y, 50% shrink  1049       1.549     1.56       1.550       42.435     42.37           0.525          -2.746
+
+Recent 2 years only (2024-11 -> 2026-10):
+                            n  MAPE_model  MAPE_rw  score_model  score_rw  win_rate_vs_rw
+spec                                                                                     
+MAIN  REV+VGAP, 10y        99       1.221    1.257       43.893    43.716           0.566
+REV only, 10y              99       1.220    1.257       43.902    43.716           0.576
+VGAP only, 10y             99       1.231    1.257       43.844    43.716           0.586
+R1+VGAP, 10y               99       1.230    1.257       43.848    43.716           0.576
+REV+VGAP, 5y               99       1.214    1.257       43.931    43.716           0.566
+REV+VGAP, 15y              99       1.217    1.257       43.913    43.716           0.566
+REV+VGAP, 10y, 50% shrink  99       1.235    1.257       43.824    43.716           0.596
+
+High-VIX origins (VIX>18, like now): n=446, MAPE model 2.210% vs RW 2.245%
+Five worst model failures:
+                 P0   actual  F_model  E_model
+origin                                        
+2008-10-03  1099.23   909.92  1114.66    22.50
+2020-03-06  2972.37  2480.64  2992.10    20.62
+2008-11-14   873.29   752.44   875.70    16.38
+2020-03-13  2711.02  2409.39  2737.61    13.62
+2020-02-21  3337.75  2978.76  3349.25    12.44
+
+=== FINAL FORECAST (main spec) ===
+Training sample            : 2016-10-24 -> 2026-10-26 (2511 obs)
+Baseline P(30 Oct)         : 7580.07
+Factor values              : REV = -0.574%   VGAP = 1.41 VIX pts (VIX 19.42 vs 1y avg 18.01)
+Coefficients               : a = 0.002165   b(REV) = -0.0537   c(VGAP) = 0.000037
+Contributions (log-return) : intercept +0.217%, REV +0.031%, VGAP +0.005%
+Expected 4-day return      : +0.253%
+POINT FORECAST 5 Nov close : 7599.23
+80% interval (residuals)   : 7428.62 - 7757.17
+VIX-implied 1-sigma (4d)   : +/-2.45%  -> adverse -2 sigma scenario 7236.32 (score would be ~26.1/50)
+
+Sensitivity of the point forecast to specification:
+                           exp_ret_pct  forecast
+spec                                            
+MAIN  REV+VGAP, 10y               0.25   7599.23
+REV only, 10y                     0.25   7599.13
+VGAP only, 10y                    0.22   7596.51
+R1+VGAP, 10y                      0.46   7614.79
+REV+VGAP, 5y                      0.26   7599.72
+REV+VGAP, 15y                     0.26   7600.06
+REV+VGAP, 10y, 50% shrink         0.13   7589.64
+
+=== MIDTERM ELECTION WEEK (Fri before -> 4 trading days later), 1950-2022 ===
+  election     origin     target  ret_pct
+1950-11-07 1950-11-03 1950-11-10     0.45
+1954-11-02 1954-10-29 1954-11-05     3.25
+1958-11-04 1958-10-31 1958-11-07     1.81
+1962-11-06 1962-11-02 1962-11-09     1.78
+1966-11-08 1966-11-04 1966-11-11     1.40
+1970-11-03 1970-10-30 1970-11-05     1.02
+1974-11-05 1974-11-01 1974-11-07     1.80
+1978-11-07 1978-11-03 1978-11-09    -1.83
+1982-11-02 1982-10-29 1982-11-04     6.08
+1986-11-04 1986-10-31 1986-11-06     0.77
+1990-11-06 1990-11-02 1990-11-08    -1.36
+1994-11-08 1994-11-04 1994-11-10     0.45
+1998-11-03 1998-10-30 1998-11-05     3.20
+2002-11-05 2002-11-01 2002-11-07     0.19
+2006-11-07 2006-11-03 2006-11-09     1.03
+2010-11-02 2010-10-29 2010-11-04     3.19
+2014-11-04 2014-10-31 2014-11-06     0.65
+2018-11-06 2018-11-02 2018-11-08     3.08
+2022-11-08 2022-11-04 2022-11-10     4.93
+Midterm weeks: mean +1.68%, median +1.40%, positive 17/19 | all 4-day windows since 1950: mean +0.15%, positive 56%
+Control (same window, non-midterm years): n=57, mean +0.50%, positive 60%  -> midterm excess +1.18 pp
+
+=== JUDGEMENTAL ADJUSTMENT (separate from model) ===
+Midterm excess +1.18 pp x 0.5 shrink (small sample n=19, outcome partly priced) = +0.59%
+Model forecast 7599.23 -> adjusted forecast 7643.97
