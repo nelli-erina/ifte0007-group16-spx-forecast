@@ -1,0 +1,4 @@
+[PASS] forecast is a finite number  (7596.27)
+[PASS] expected 6-day return within +/-3%  (+0.051%)
+[PASS] reversal coefficient has expected sign (<0)  (-0.0351)
+[PASS] rates coefficient has expected sign (<0)  (-0.00568)

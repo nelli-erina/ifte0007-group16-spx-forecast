@@ -1,0 +1,90 @@
+RUN final_20261112 at 2026-11-12T22:11:58+00:00 UTC | python 3.13.18 | pandas 3.0.5 | numpy 2.5.3
+=== CHECKS: data, look-ahead, synthetic test ===
+[PASS] no data after cutoff  (last date 2026-11-12)
+[PASS] last row is the cutoff close  (2026-11-12 vs 2026-11-12)
+[PASS] no duplicate dates  (0 duplicates)
+[PASS] dates sorted
+[PASS] no missing values in last 30 rows  ({'spx': 0, 'vix': 0, 'tnx': 0})
+[PASS] no calendar gaps > 5 days since 1995  (1 gaps: [datetime.date(2001, 9, 17)])
+[PASS] no daily index moves > 10% (other than known crises)  (3 days: [datetime.date(2008, 10, 13), datetime.date(2008, 10, 28), datetime.date(2020, 3, 16)])
+[PASS] last close within 20% of previous month
+[PASS] VIX in plausible range (5-90)
+[PASS] 10y yield in plausible range (0-10%)
+[WARN] last close cross-checked against S&P DJI  (not done: pass --official-close)
+[PASS] no look-ahead in training windows (25 sampled origins)  (0 violations)
+[PASS] estimator recovers known coefficients on synthetic data  (true [0.003, -0.04, -0.006] vs est [0.003, -0.0394, -0.006])
+
+Baseline close 2026-11-12: 7592.40 | VIX 18.70 | REV +3.19% | VGAP +0.57 | DTNX +0.266 pp
+
+=== BACKTEST: Thursday origins since 2006, 6-trading-day horizon, rolling 10y OLS ===
+                          n   MAPE  MAPE_rw   score  score_rw  win_vs_rw  t_vs_rw  t_vs_rw_nw
+spec                                                                                         
+M0 drift only          1056  1.816    1.834  41.058    40.963      0.549   -3.296      -2.997
+M1 reversal            1056  1.824    1.834  41.025    40.963      0.528   -1.147      -1.112
+M2 reversal + VIX gap  1056  1.829    1.834  41.011    40.963      0.536   -0.496      -0.486
+M3 reversal + rates    1056  1.825    1.834  41.021    40.963      0.526   -0.955      -0.928
+
+Last 2 years:
+                        n   MAPE  MAPE_rw   score  score_rw  win_vs_rw
+spec                                                                  
+M0 drift only          98  1.638     1.64  41.938    41.912       0.52
+M1 reversal            98  1.631     1.64  41.971    41.912       0.52
+M2 reversal + VIX gap  98  1.630     1.64  41.976    41.912       0.52
+M3 reversal + rates    98  1.635     1.64  41.947    41.912       0.52
+
+Forecasts by specification:
+                                                  coef  exp_ret_pct   forecast
+spec                                                                          
+M0 drift only                               [0.003018]       0.3022  7615.3453
+M1 reversal                      [0.003106, -0.034737]       0.1998  7607.5709
+M2 reversal + VIX gap  [0.003028, -0.012948, 0.000194]       0.2729  7613.1173
+M3 reversal + rates    [0.003142, -0.03514, -0.005677]       0.0509  7596.2672
+
+=== CHECKS: forecast sanity ===
+[PASS] forecast is a finite number  (7596.27)
+[PASS] expected 6-day return within +/-3%  (+0.051%)
+[PASS] reversal coefficient has expected sign (<0)  (-0.0351)
+[PASS] rates coefficient has expected sign (<0)  (-0.00568)
+
+=== MAIN SPEC (M3 reversal + rates) ===
+Coefficients (alpha, b_REV, b_DTNX): [np.float64(0.003142), np.float64(-0.03514), np.float64(-0.005677)]
+Expected 6-day return +0.051%  ->  POINT FORECAST 7596.27
+80% range from backtest errors: 7383.02 - 7799.59
+VIX-implied 1-sigma over 6 days: +/-2.89%; adverse -2 sigma: 7166.65 (score ~20.3)
+Worst historical misses:
+                 P0   actual        F      E
+origin                                      
+2008-10-02  1114.28   899.22  1125.80  25.20
+2020-02-20  3373.23  2954.22  3384.31  14.56
+2008-11-13   911.29   800.03   909.72  13.71
+2009-02-12   835.19   743.33   836.63  12.55
+2025-03-27  5693.31  5074.08  5701.92  12.37
+When VIX>20 at origin: n=351, MAPE 2.72% vs RW 2.72%
+
+=== SENSITIVITY: one assumption changed at a time ===
+                  assumption  value  main  MAPE  MAPE_rw  t_vs_rw  forecast  dev_from_main_pts
+   Estimation window (years)      5 False 1.833    1.834   -0.085  7551.172            -45.095
+   Estimation window (years)     10  True 1.825    1.834   -0.955  7596.267              0.000
+   Estimation window (years)     15 False 1.824    1.834   -1.264  7585.519            -10.748
+    Reversal lookback (days)      1 False 1.832    1.834   -0.221  7610.088             13.821
+    Reversal lookback (days)      3 False 1.824    1.834   -1.090  7601.265              4.998
+    Reversal lookback (days)      5  True 1.825    1.834   -0.955  7596.267              0.000
+    Reversal lookback (days)     10 False 1.827    1.834   -0.937  7606.475             10.208
+    Reversal lookback (days)     20 False 1.831    1.834   -0.388  7611.605             15.338
+Yield-change lookback (days)      5  True 1.825    1.834   -0.955  7596.267              0.000
+Yield-change lookback (days)     10 False 1.835    1.834    0.028  7604.298              8.031
+Yield-change lookback (days)     20 False 1.828    1.834   -0.644  7607.589             11.322
+
+=== OPTIONS CHECK (SPXW 2026-11-20) ===
+{
+  "expiry": "2026-11-20",
+  "contracts": "SPXW (PM-settled)",
+  "implied_forward": 7605.65,
+  "atm_strike": 7600.0,
+  "atm_straddle": 136.85,
+  "expected_abs_move_pct": 1.8,
+  "quotes_last_trade": "2026-11-12 21:14:58+00:00",
+  "snapshot_retrieved_utc": "2026-11-12T22:12:15+00:00",
+  "snapshot_file": "spxw_2026-11-20_snapshot.csv"
+}
+Coefficient t-stats (Newey-West): alpha 2.82, REV -0.56, DTNX -0.47; R2 0.17%

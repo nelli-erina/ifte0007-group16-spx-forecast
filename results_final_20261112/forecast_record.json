@@ -1,0 +1,29 @@
+{
+  "status": "FINAL",
+  "market": "S&P 500 price index",
+  "unit": "index points",
+  "target": "Official S&P DJI close, Fri 20 Nov 2026, 16:00 New York",
+  "information_cutoff": "Fri 13 Nov 2026 12:00 London; last usable close 2026-11-12",
+  "baseline_close": 7592.4,
+  "model": "M3 reversal + rates",
+  "coefficients": [
+    0.003142,
+    -0.03514,
+    -0.005677
+  ],
+  "expected_return_pct": 0.0509,
+  "point_forecast": 7596.27,
+  "options_check": {
+    "expiry": "2026-11-20",
+    "contracts": "SPXW (PM-settled)",
+    "implied_forward": 7605.65,
+    "atm_strike": 7600.0,
+    "atm_straddle": 136.85,
+    "expected_abs_move_pct": 1.8,
+    "quotes_last_trade": "2026-11-12 21:14:58+00:00",
+    "snapshot_retrieved_utc": "2026-11-12T22:12:15+00:00",
+    "snapshot_file": "spxw_2026-11-20_snapshot.csv"
+  },
+  "official_close_used_for_check": null,
+  "reproduce_with": "python spx_forecast_v2.py --cutoff 2026-11-12 --no-download"
+}

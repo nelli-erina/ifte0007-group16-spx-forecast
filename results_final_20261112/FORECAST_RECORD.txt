@@ -1,0 +1,10 @@
+FINAL FORECAST RECORD - Group 16 (FINAL)
+Market:              S&P 500 price index
+Unit:                index points
+Target:              Official S&P DJI close, Fri 20 Nov 2026, 16:00 New York
+Information cutoff:  Fri 13 Nov 2026 12:00 London; last usable close 2026-11-12
+Baseline close:      7592.40
+Model:               M3 reversal + rates
+Expected return:     +0.051%
+POINT FORECAST:      7596.27
+Software:            python 3.13.18, pandas 3.0.5, numpy 2.5.3
