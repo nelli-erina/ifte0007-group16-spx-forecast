@@ -24,6 +24,6 @@
     "snapshot_retrieved_utc": "2026-11-12T22:12:15+00:00",
     "snapshot_file": "spxw_2026-11-20_snapshot.csv"
   },
-  "official_close_used_for_check": null,
-  "reproduce_with": "python spx_forecast_v2.py --cutoff 2026-11-12 --no-download"
+  "official_close_used_for_check": 7592.4,
+  "reproduce_with": "python spx_forecast_v2.py --cutoff 2026-11-12 --no-download --official-close 7592.4"
 }

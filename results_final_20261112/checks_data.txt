@@ -8,6 +8,6 @@
 [PASS] last close within 20% of previous month
 [PASS] VIX in plausible range (5-90)
 [PASS] 10y yield in plausible range (0-10%)
-[WARN] last close cross-checked against S&P DJI  (not done: pass --official-close)
+[PASS] last close matches S&P DJI official value  (Yahoo 7592.40 vs S&P DJI 7592.40)
 [PASS] no look-ahead in training windows (25 sampled origins)  (0 violations)
 [PASS] estimator recovers known coefficients on synthetic data  (true [0.003, -0.04, -0.006] vs est [0.003, -0.0394, -0.006])
