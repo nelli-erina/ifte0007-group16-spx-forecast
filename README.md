@@ -54,7 +54,7 @@ Clone or download this repository (Code → Download ZIP), then:
    python make_figures.py --tag <tag> --out figures
    python make_report_numbers.py --tag <tag> --out numbers.tex
    ```
-5. Compare with the shipped files: all outputs are identical; only `run_log.txt` differs, because it records the time of the run.
+5. Compare with the shipped files: all outputs are identical; only `run_log.txt` (and therefore its line in `SHA256SUMS.txt`) differs, because it records the time of the run.
 
 ## Software
 
@@ -62,7 +62,7 @@ Python 3.13.18; numpy 2.5.3; pandas 3.0.5; matplotlib 3.11.2; yfinance 1.7.0 (do
 
 ## Data notes
 
-- Prices and yields are from Yahoo Finance, which redistributes the official index levels. The 12 November close was checked by hand against S&P Dow Jones Indices (`--official-close`; result in `checks_data.txt`; screenshot `agent_log/spdji_close_12nov.png`).
+- Prices and yields are from Yahoo Finance, which redistributes the official index levels. The 12 November close was checked by hand against S&P Dow Jones Indices (`--official-close`; result in `checks_data.txt`).
 - The SPXW option snapshot was taken before 12:00 London on 13 November; its retrieval time is in the file and in `report_numbers.json`.
 - Data files are included only so that the marker can reproduce the calculation; they remain subject to the providers' terms of use.
 - No credentials, API keys or personal data are included. No paid data or trading account was used.

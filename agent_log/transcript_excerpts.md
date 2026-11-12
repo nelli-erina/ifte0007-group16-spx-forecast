@@ -50,5 +50,5 @@ The report's earlier claim about this model was overstated and was corrected.
 ### 9. Automated checks and reproducibility
 **Tool output:** 17 checks PASS (data, look-ahead, synthetic test, forecast sanity); two runs on frozen data produce identical files except the run timestamp; `sha256sum -c SHA256SUMS.txt` → all OK.
 
-### 10. Final run (13 November) — `[to be added]`
-`[paste the final run's console summary and the FORECAST_RECORD.txt here]`
+### 10. Final run (13 November)
+The complete console output of the final run is saved by the script as `results_final_20261112/run_log.txt` (checks, backtest, sensitivity, options check); the resulting forecast is in `results_final_20261112/FORECAST_RECORD.txt`.
