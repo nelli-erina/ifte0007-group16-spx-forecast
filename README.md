@@ -1,11 +1,11 @@
-# Group 16 — S&P 500 forecast for 20 November 2026: evidence package
+# Group 16 — S&P 500 forecast for 20 November 2026: code and evidence
 
 IFTE0007 Decentralised Finance and Blockchain, group coursework.
 Authors: Nelli Erina, Yaxi Gu, Chloe Wei Wu, Taoyan Xia (University College London).
 
 ## Final forecast record
 
-See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` is `final_20261112` in the submitted package.
+See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` is `final_20261112` for the submitted forecast; `dryrun_20261110` is the rehearsal on data to 10 November.
 
 | Item | Value |
 |---|---|
@@ -13,7 +13,8 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | Unit | index points |
 | Target | Official S&P Dow Jones Indices close, Friday 20 November 2026, 16:00 New York |
 | Information cutoff | 12:00 London, Friday 13 November 2026 (last usable close: Thursday 12 November) |
-| Point forecast | see `FORECAST_RECORD.txt` |
+| Target time | Friday 20 November 2026, 4:00 pm New York (EST) = 9:00 pm London (21:00 UTC) |
+| Point forecast | see `FORECAST_RECORD.txt` (two decimal places) |
 
 ## Contents
 
@@ -32,6 +33,8 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | `agent_log/` | `agent_instructions.md` (goal, data boundary, permitted tools), `decision_log.md` (decisions, tool inputs and outputs, corrections, checks, approval), `transcript_excerpts.md` |
 
 ## How to reproduce (no account, network or AI subscription needed)
+
+Clone or download this repository (Code → Download ZIP), then:
 
 1. Install Python 3.11+ and: `pip install numpy pandas matplotlib`  (yfinance is only needed to download, not to reproduce).
 2. **First** check that the frozen inputs are unchanged:
