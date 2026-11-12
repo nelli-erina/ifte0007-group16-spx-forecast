@@ -1,0 +1,61 @@
+{
+  "tag": "final_20261112",
+  "interval_coverage": {
+    "n": 951,
+    "min_history": 104,
+    "first_origin": "2008-01-24",
+    "all_pct": 80.7570977917981,
+    "vix_le20_n": 621,
+    "vix_le20_pct": 91.30434782608695,
+    "vix_gt20_n": 330,
+    "vix_gt20_pct": 60.909090909090914
+  },
+  "constant_shift": {
+    "shift_pct": 0.59,
+    "n": 1056,
+    "share_weeks_better_pct": 50.28409090909091,
+    "mae_model": 1.8253015604886973,
+    "mae_shifted": 1.8342408147766518
+  },
+  "split_sample": {
+    "2006-2015": {
+      "n": 507,
+      "mae_no_change": 1.9147708926108424,
+      "mae": {
+        "M0 drift only": 1.9120722494973694,
+        "M1 reversal": 1.9171044948394151,
+        "M2 reversal + VIX gap": 1.9209636717504264,
+        "M3 reversal + rates": 1.918705509497889
+      },
+      "ranking": [
+        "M0 drift only",
+        "M1 reversal",
+        "M3 reversal + rates",
+        "M2 reversal + VIX gap"
+      ],
+      "max_gap_pp": 0.008891422253056946
+    },
+    "2016-2026": {
+      "n": 549,
+      "mae_no_change": 1.7598790313939146,
+      "mae": {
+        "M0 drift only": 1.7269664759090344,
+        "M1 reversal": 1.7383776931646773,
+        "M2 reversal + VIX gap": 1.7442294817972732,
+        "M3 reversal + rates": 1.7390432687807558
+      },
+      "ranking": [
+        "M0 drift only",
+        "M1 reversal",
+        "M3 reversal + rates",
+        "M2 reversal + VIX gap"
+      ],
+      "max_gap_pp": 0.017263005888238814
+    },
+    "same_ranking_in_both_halves": true,
+    "best_in_both_halves": [
+      "M0 drift only",
+      "M0 drift only"
+    ]
+  }
+}

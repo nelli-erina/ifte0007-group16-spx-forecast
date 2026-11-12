@@ -28,6 +28,7 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | `data_<tag>/` | **Frozen inputs**: `gspc.csv`, `vix.csv`, `tnx.csv`, `spxw_2026-11-20_snapshot.csv`, `data_snapshot_meta.json` (source URL, retrieval time, publication time, last observation), `SHA256SUMS.txt` |
 | `results_<tag>/` | Outputs: forecast record, backtest, sensitivity, `report_numbers.json`, check reports, run log, `SHA256SUMS.txt` |
 | `extras/` | `extras.py` and its frozen inputs (`extras/data/`) and outputs (`extras/results/`): pilot-window comparison of all methods, Ridge with/without the earnings factor, market choice, overnight-move test, tail events |
+| `extras/robustness_checks.py` | Interval coverage from earlier errors only, the pilot's +0.59% shift applied to every backtest week, and the split-sample comparison of the four specifications; writes `results_<tag>/robustness_checks.json` |
 | `alternatives/` | Re-implementations of other group methods (KNN, Ridge) and the pilot-round script with its data and results |
 | `figures/` | Figures used in the report |
 | `agent_log/` | `agent_instructions.md` (goal, data boundary, permitted tools), `decision_log.md` (decisions, tool inputs and outputs, corrections, checks, approval), `transcript_excerpts.md` |
@@ -50,7 +51,7 @@ Clone or download this repository (Code → Download ZIP), then:
    Without `--no-download` the script refuses to touch an existing data folder, so the frozen inputs cannot be overwritten by mistake.
 4. Re-run the supporting calculations and figures:
    ```
-   cd extras && python extras.py <tag> && cd ..
+   cd extras && python extras.py <tag> && python robustness_checks.py <tag> && cd ..
    python make_figures.py --tag <tag> --out figures
    python make_report_numbers.py --tag <tag> --out numbers.tex
    ```
