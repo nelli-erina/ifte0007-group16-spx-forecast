@@ -26,7 +26,7 @@
 |---|---|---|---|
 | C1 | Preliminary 2 Nov close 7,541.56 | Re-download showed a revised value | Use 7,541.40 |
 | C2 | Preliminary 5 Nov VIX close 26.9 | Re-download showed a revised value | Use 28.18 |
-| C3 | A classmate's KNN forecast targeted 2 Nov (1 day) instead of 5 Nov (4 days) | Agent re-implemented the model and compared horizons | Member re-ran it at the 4-day horizon (7,567.41, `alternatives/members/KNN_member_forecast_5Nov.xlsx`) |
+| C3 | A member's KNN forecast targeted 2 Nov (1 day) instead of 5 Nov (4 days) | Agent re-implemented the model and compared horizons | Member re-ran it at the 4-day horizon (7,567.41, `alternatives/members/KNN_member_forecast_5Nov.xlsx`) |
 | C4 | Code used model M1 while the report described M3 | Agent compared the script with the report | Code set to M3 (D4); forecasts now identical |
 | C5 | Report overstated the earnings factor ("beats no change 47% vs 33%") | Agent re-tested with vs without the factor | Section 6.3 rewritten with Table 7 |
 | C6 | Window sensitivity was marked "to be confirmed" | Agent noticed the claim was untested | Script now runs the sensitivity automatically (`sensitivity.csv`) |
