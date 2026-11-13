@@ -1,5 +1,5 @@
 """
-Re-implementation of the classmate's Ridge + earnings-factor model, corrected to the
+Re-implementation of the member's Ridge + earnings-factor model, corrected to the
 practice-round task: data up to Fri 30 Oct 2026 close, forecast the close on Thu 5 Nov
 (4 trading days ahead). Same factors and method as the original report, horizon changed.
 

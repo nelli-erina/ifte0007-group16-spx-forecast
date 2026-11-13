@@ -1,5 +1,5 @@
 """
-KNN model (classmate's method) re-implemented on the same frozen data, and compared
+KNN model (member's method) re-implemented on the same frozen data, and compared
 with our regression model and the no-change benchmark.
 
 Features at day t:  M = ln(P_t / P_{t-5})            (5-day momentum)
