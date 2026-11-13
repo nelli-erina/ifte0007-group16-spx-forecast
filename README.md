@@ -16,7 +16,9 @@ All four members worked on the project; decisions were taken together at the gro
 | Chloe Wei Wu | Organisation and coordination of the group's work; comparison and discussion of candidate models; draft of the report |
 | Taoyan Xia | k-nearest-neighbours and Ridge (earnings-factor) models; design of the report; draft of the report |
 
-Members' own pilot files are in `alternatives/members/`.
+Members' own test-forecast files are in `alternatives/members/`.
+
+> **Note on horizons.** Everything in `alternatives/` belongs to the **test forecast** (data to the 30 October close, target the 5 November close, **4 trading days**), where the members' methods were compared. These models were not used for the final forecast. The **final forecast** (data to the 12 November close, target the 20 November close, **6 trading days**) uses only the main model in `spx_forecast_v2.py` (`H = 6`).
 
 ## Final forecast record
 
@@ -56,10 +58,10 @@ The labels are kept unchanged in the code so that the frozen results reproduce b
 | `requirements.txt` | Software versions |
 | `data_<tag>/` | **Frozen inputs**: `gspc.csv`, `vix.csv`, `tnx.csv`, `spxw_2026-11-20_snapshot.csv`, `data_snapshot_meta.json` (source URL, retrieval time, publication time, last observation), `SHA256SUMS.txt` |
 | `results_<tag>/` | Outputs: forecast record, backtest, sensitivity, `report_numbers.json`, check reports, run log, `SHA256SUMS.txt` |
-| `extras/` | `extras.py` and its frozen inputs (`extras/data/`) and outputs (`extras/results/`): pilot-window comparison of all methods, Ridge with/without the earnings factor, market choice, overnight-move test, tail events |
-| `extras/robustness_checks.py` | Interval coverage from earlier errors only, the pilot's +0.59% shift applied to every backtest week, and the split-sample comparison of the four specifications; writes `results_<tag>/robustness_checks.json` |
+| `extras/` | `extras.py` and its frozen inputs (`extras/data/`) and outputs (`extras/results/`): test-forecast comparison of all methods (4-day horizon), Ridge with/without the earnings factor, market choice, overnight-move test, tail events |
+| `extras/robustness_checks.py` | Interval coverage from earlier errors only, the test forecast's +0.59% shift applied to every backtest week, and the split-sample comparison of the four specifications; writes `results_<tag>/robustness_checks.json` |
 | `extras/factor_gain_by_year.py` | Gain over no change by calendar year for drift only, drift + reversal, drift + rates and the main model (the 2009 and 2012 explanation in Section 5); writes `results_<tag>/factor_gain_by_year.csv` |
-| `alternatives/` | Members' own pilot files (`alternatives/members/`), agent re-implementations of other group methods (KNN, Ridge) and the pilot-round script with its data and results |
+| `alternatives/` | Test forecast only (4-day horizon, 30 Oct → 5 Nov): members' own files (`alternatives/members/`), agent re-implementations of other group methods (KNN, Ridge) and the test-forecast script with its data and results (`alternatives/pilot/`) |
 | `figures/` | Figures used in the report |
 | `agent_log/` | `agent_instructions.md` (goal, data boundary, permitted tools), `decision_log.md` (decisions, tool inputs and outputs, corrections, checks, approval), `transcript_excerpts.md`, `reproduction_13nov.md` (independent offline re-run on 13 November: identical results) |
 
