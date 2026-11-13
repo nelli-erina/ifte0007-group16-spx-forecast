@@ -13,8 +13,8 @@ Short excerpts from the agent session that show the key decisions, tool calls an
 **User (translated):** "Are you sure it is 17 November and not 20? Re-read the file."
 **Agent:** Re-read the brief. Target is the close on **Friday 20 November**; cutoff is 12:00 London on 13 November, before the US open, so the last usable close is Thursday 12 November and the horizon is 6 trading days.
 
-### 3. Correction of a classmate's model (correction C3)
-**Agent → tool (Python, `knn_compare.py`):** re-implement the KNN model; reproduces the classmate's figure 7,578.68.
+### 3. Correction of a member's model (correction C3)
+**Agent → tool (Python, `knn_compare.py`):** re-implement the KNN model; reproduces the member's figure 7,578.68.
 **Agent:** This figure is a **1-day** forecast (for 2 November), but the pilot target was 5 November, **4 days** ahead.
 **Member:** sent a corrected workbook at the 4-session horizon: 7,567.41 (k = 50, 5-day momentum + 40-day volatility).
 
