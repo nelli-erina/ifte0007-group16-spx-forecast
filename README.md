@@ -14,7 +14,7 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | Target | Official S&P Dow Jones Indices close, Friday 20 November 2026, 16:00 New York |
 | Information cutoff | 12:00 London, Friday 13 November 2026 (last usable close: Thursday 12 November) |
 | Target time | Friday 20 November 2026, 4:00 pm New York (EST) = 9:00 pm London (21:00 UTC) |
-| Point forecast | see `FORECAST_RECORD.txt` (two decimal places) |
+| Point forecast | **7,596.27** (see `FORECAST_RECORD.txt`) |
 
 ## Contents
 
@@ -30,9 +30,9 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | `extras/` | `extras.py` and its frozen inputs (`extras/data/`) and outputs (`extras/results/`): pilot-window comparison of all methods, Ridge with/without the earnings factor, market choice, overnight-move test, tail events |
 | `extras/robustness_checks.py` | Interval coverage from earlier errors only, the pilot's +0.59% shift applied to every backtest week, and the split-sample comparison of the four specifications; writes `results_<tag>/robustness_checks.json` |
 | `extras/factor_gain_by_year.py` | Gain over no change by calendar year for drift only, drift + reversal, drift + rates and the main model (the 2009 and 2012 explanation in Section 5); writes `results_<tag>/factor_gain_by_year.csv` |
-| `alternatives/` | Re-implementations of other group methods (KNN, Ridge) and the pilot-round script with its data and results |
+| `alternatives/` | Members' own pilot files (`alternatives/members/`), agent re-implementations of other group methods (KNN, Ridge) and the pilot-round script with its data and results |
 | `figures/` | Figures used in the report |
-| `agent_log/` | `agent_instructions.md` (goal, data boundary, permitted tools), `decision_log.md` (decisions, tool inputs and outputs, corrections, checks, approval), `transcript_excerpts.md` |
+| `agent_log/` | `agent_instructions.md` (goal, data boundary, permitted tools), `decision_log.md` (decisions, tool inputs and outputs, corrections, checks, approval), `transcript_excerpts.md`, `reproduction_13nov.md` (independent offline re-run on 13 November: identical results) |
 
 ## How to reproduce (no account, network or AI subscription needed)
 
@@ -46,7 +46,7 @@ Clone or download this repository (Code → Download ZIP), then:
    Every line should say OK. (Windows PowerShell: `Get-FileHash <file> -Algorithm SHA256`.)
 3. Re-run the main calculation from the frozen inputs:
    ```
-   python spx_forecast_v2.py --cutoff 2026-11-12 --no-download --official-close <value>
+   python spx_forecast_v2.py --cutoff 2026-11-12 --no-download --official-close 7592.40
    ```
    The exact command is stored in `results_<tag>/forecast_record.json` under `reproduce_with`. About 20 seconds.
    Without `--no-download` the script refuses to touch an existing data folder, so the frozen inputs cannot be overwritten by mistake.
@@ -56,7 +56,7 @@ Clone or download this repository (Code → Download ZIP), then:
    python make_figures.py --tag <tag> --out figures
    python make_report_numbers.py --tag <tag> --out numbers.tex
    ```
-5. Compare with the shipped files: all outputs are identical; only `run_log.txt` (and therefore its line in `SHA256SUMS.txt`) differs, because it records the time of the run.
+5. Compare with the shipped files: all outputs are identical; only `run_log.txt` (and therefore its line in `SHA256SUMS.txt`) differs, because it records the time of the run. Regenerated figure PDFs carry a new creation date in their metadata and may differ by a pixel in font rendering; the plotted data are the same.
 
 ## Software
 
@@ -65,6 +65,6 @@ Python 3.13.18; numpy 2.5.3; pandas 3.0.5; matplotlib 3.11.2; yfinance 1.7.0 (do
 ## Data notes
 
 - Prices and yields are from Yahoo Finance, which redistributes the official index levels. The 12 November close was checked by hand against S&P Dow Jones Indices (`--official-close`; result in `checks_data.txt`).
-- The SPXW option snapshot was taken before 12:00 London on 13 November; its retrieval time is in the file and in `report_numbers.json`.
+- The SPXW option snapshot was taken at 22:12 London on 12 November, after the US close and before the cutoff; its retrieval time is in the file and in `report_numbers.json`.
 - Data files are included only so that the marker can reproduce the calculation; they remain subject to the providers' terms of use.
 - No credentials, API keys or personal data are included. No paid data or trading account was used.
