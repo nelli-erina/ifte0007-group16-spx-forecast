@@ -16,6 +16,19 @@ See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` i
 | Target time | Friday 20 November 2026, 4:00 pm New York (EST) = 9:00 pm London (21:00 UTC) |
 | Point forecast | **7,596.27** (see `FORECAST_RECORD.txt`) |
 
+## Model names: code vs report
+
+The code labels the four specifications M0–M3; the report uses descriptive names. **M3 is the model we chose** for the forecast.
+
+| In the code and result files | In the report (Table 4) | What it is |
+|---|---|---|
+| `M0 drift only` | Drift only | Linear regression with a constant only: the average six-day return of the past ten years |
+| `M1 reversal` | Drift + reversal | Linear regression on last week's index return |
+| `M2 reversal + VIX gap` | Drift + reversal + VIX gap | As M1, plus VIX minus its 252-day average (rejected) |
+| `M3 reversal + rates` | **Drift + reversal + rates (main)** | **Chosen model:** linear regression (OLS, rolling ten years) on last week's index return and last week's change in the 10-year Treasury yield |
+
+The labels are kept unchanged in the code so that the frozen results reproduce byte for byte.
+
 ## Contents
 
 | Path | Contents |
