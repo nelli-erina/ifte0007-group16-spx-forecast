@@ -3,6 +3,19 @@
 IFTE0007 Decentralised Finance and Blockchain, group coursework.
 Authors: Nelli Erina, Yaxi Gu, Chloe Wei Wu, Taoyan Xia (University College London).
 
+## Group members
+
+All four members worked on the project; decisions were taken together at the group meeting of 10 November (see the Contribution Statement in the report and `agent_log/decision_log.md`).
+
+| Member | Main contribution |
+|---|---|
+| Nelli Erina | Linear regression factor model (with the AI agent); evidence package and this repository; draft of the report |
+| Yaxi Gu | Historical-mean and AR(1) models; comparison of candidate models; draft of the report |
+| Chloe Wei Wu | Organisation and coordination of the group's work; comparison and discussion of candidate models; draft of the report |
+| Taoyan Xia | k-nearest-neighbours and Ridge (earnings-factor) models; design of the report; draft of the report |
+
+Members' own pilot files are in `alternatives/members/`.
+
 ## Final forecast record
 
 See `results_<tag>/FORECAST_RECORD.txt` (also `forecast_record.json`). `<tag>` is `final_20261112` for the submitted forecast; `dryrun_20261110` is the rehearsal on data to 10 November.
@@ -52,7 +65,7 @@ The labels are kept unchanged in the code so that the frozen results reproduce b
 
 Clone or download this repository (Code → Download ZIP), then:
 
-1. Install Python 3.11+ and: `pip install numpy pandas matplotlib`  (yfinance is only needed to download, not to reproduce).
+1. Install Python 3.11+ and the pinned versions: `pip install -r requirements.txt` (or at least `pip install numpy pandas matplotlib openpyxl`; yfinance is only needed to download, not to reproduce). Nothing is downloaded during reproduction: every input is in this repository.
 2. **First** check that the frozen inputs are unchanged:
    ```
    cd data_<tag> && sha256sum -c SHA256SUMS.txt && cd ..
@@ -70,7 +83,7 @@ Clone or download this repository (Code → Download ZIP), then:
    python make_figures.py --tag <tag> --out figures
    python make_report_numbers.py --tag <tag> --out numbers.tex
    ```
-5. Compare with the shipped files: all outputs are identical; only `run_log.txt` (and therefore its line in `SHA256SUMS.txt`) differs, because it records the time of the run. Regenerated figure PDFs carry a new creation date in their metadata and may differ by a pixel in font rendering; the plotted data are the same.
+5. Compare with the shipped files: all outputs are identical; only `run_log.txt` (and therefore its line in `SHA256SUMS.txt`) differs, because it records the time of the run. With other versions of numpy or pandas the numbers agree to about twelve decimal places and the forecast is the same 7,596.27; only the pinned versions reproduce the files byte for byte. Regenerated figure PDFs carry a new creation date in their metadata and may differ by a pixel in font rendering; the plotted data are the same.
 
 ## Software
 

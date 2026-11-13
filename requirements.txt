@@ -2,4 +2,5 @@
 numpy==2.5.3
 pandas==3.0.5
 matplotlib==3.11.2
+openpyxl==3.1.5   # reads a member's Excel file in extras/extras.py
 yfinance==1.7.0   # only needed to DOWNLOAD data; not needed to reproduce from the frozen snapshot
