@@ -3,6 +3,8 @@
 IFTE0007 Decentralised Finance and Blockchain, group coursework.
 Authors: Nelli Erina, Yaxi Gu, Chloe Wei Wu, Taoyan Xia (University College London).
 
+> **Data note.** Price data were downloaded from Yahoo Finance (index data © S&P Dow Jones Indices; VIX and ^TNX © Cboe). They are included solely so that this coursework can be reproduced for marking and are not used for any other purpose. They are not licensed for redistribution, and all raw data will be removed from this repository once the coursework has been assessed (or earlier on request).
+
 ## Group members
 
 All four members worked on the project; decisions were taken together at the group meeting of 10 November (see the Contribution Statement in the report and `agent_log/decision_log.md`).
